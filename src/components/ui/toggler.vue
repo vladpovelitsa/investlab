@@ -29,7 +29,9 @@
 				required: true,
 			},
 		},
-		data() {},
+		data() {
+			return {};
+		},
 		methods: {},
 	};
 </script>

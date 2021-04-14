@@ -501,7 +501,7 @@
 				plotOptions: {
 					bar: {
 						horizontal: false,
-						columnWidth: '40%',
+						columnWidth: '30%',
 						borderRadius: 5,
 					},
 				},
