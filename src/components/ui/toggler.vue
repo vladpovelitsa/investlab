@@ -24,16 +24,12 @@
 	export default {
 		name: 'toggler',
 		props: {
-			model: {
+			checked: {
 				type: Boolean,
 				required: true,
 			},
 		},
-		data() {
-			return {
-				checked: false,
-			};
-		},
+		data() {},
 		methods: {},
 	};
 </script>

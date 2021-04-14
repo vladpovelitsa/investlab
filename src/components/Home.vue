@@ -39,7 +39,16 @@
 						<div class="item">
 							<header class="d-flex flex-wrap justify-space-between item__header pa-4">
 								<div class="item__title">Сравнение</div>
-								<Toggler @click="test" :model="compareColumns">
+
+								<Toggler :checked="checked">
+									<template v-slot:input>
+										<input
+											type="checkbox"
+											class="visually_hidden"
+											name="model"
+											@change="toggleResults(results), (checked = !checked)"
+										/>
+									</template>
 									<template v-slot:text> Сравнение с вашими показателями </template>
 								</Toggler>
 							</header>
@@ -356,6 +365,7 @@
 			Toggler,
 		},
 		data: () => ({
+			checked: false,
 			series: [
 				{
 					name: 'Desktops',
@@ -475,19 +485,18 @@
 					name: '2020',
 					data: [44, 55, 57, 56, 61, 58, 63, 60, 66],
 				},
-				{
-					name: '2021',
-					data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
-				},
 			],
 			chartOptionColumns: {
 				colors: ['#2C7BE5', '#D2DDEC'],
 
 				chart: {
+					id: 'columns',
+
 					type: 'bar',
 					height: 450,
 					redrawOnWindowResize: true,
 					toolbar: false,
+					zoom: false,
 				},
 				plotOptions: {
 					bar: {
@@ -688,10 +697,22 @@
 					status: 'red',
 				},
 			],
+			results: {
+				name: '2021',
+				data: [76, 85, 101, 98, 87, 105, 91, 114, 94],
+			},
 		}),
 		methods: {
 			test() {
 				alert('1');
+			},
+
+			toggleResults(obj) {
+				if (this.seriesColumns.length == 1) {
+					this.seriesColumns.push(obj);
+				} else {
+					this.seriesColumns.pop();
+				}
 			},
 		},
 		mounted() {},
