@@ -7,15 +7,15 @@
 						<div class="main_chart__title">ИНВЕСТИЦИИ</div>
 						<div class="main_chart__value">Статистика</div>
 					</v-col>
-					<v-col cols="6" sm="auto" align-sm="center">
+					<v-col cols="6" sm="auto">
 						<div class="main_chart__title">ИНВЕСТИЦИИ</div>
 						<div class="main_chart__value">1 000.00 USD</div>
 					</v-col>
-					<v-col cols="6" sm="auto" align-sm="center">
+					<v-col cols="6" sm="auto">
 						<div class="main_chart__title">ИНВЕСТИЦИИ</div>
 						<div class="main_chart__value">1 000.00 USD</div>
 					</v-col>
-					<v-col cols="6" sm="auto" align-sm="center">
+					<v-col cols="6" sm="auto">
 						<div class="main_chart__title">ИНВЕСТИЦИИ</div>
 						<div class="main_chart__value">1 000.00 USD</div>
 					</v-col>
@@ -348,8 +348,10 @@
 
 <script>
 	import Toggler from './ui/toggler';
+
 	export default {
 		name: 'Home',
+
 		components: {
 			Toggler,
 		},
@@ -380,27 +382,48 @@
 					background: 'transparent',
 					toolbar: false,
 					redrawOnWindowResize: true,
-					colors: ['#000', '#fff', '#ccc'],
 				},
 				dataLabels: {
 					enabled: false,
 				},
+				legend: {
+					markers: {
+						strokeColor: '#000',
+					},
+				},
 				stroke: {
 					curve: 'smooth',
+					colors: '#3075E3',
 				},
 				title: {
 					text: '',
 				},
 				grid: {
+					strokeDashArray: 3,
 					row: {
 						colors: ['#fff', 'transparent'], // takes an array which will be repeated on columns
-						opacity: 0.01,
+						opacity: 0,
 					},
+					borderColor: 'rgba(255,255,255,.1)',
 				},
 				theme: {
 					mode: 'dark',
 				},
+				yaxis: {
+					labels: {
+						style: {
+							colors: '#6E84A3',
+						},
+					},
+					crosshairs: {
+						show: false,
+					},
+				},
+
 				xaxis: {
+					crosshairs: {
+						show: false,
+					},
 					categories: [
 						'Jan',
 						'Feb',
@@ -415,6 +438,17 @@
 						'Nov',
 						'Dec',
 					],
+					labels: {
+						style: {
+							colors: '#6E84A3',
+						},
+					},
+					axisBorder: {
+						show: false,
+					},
+					axisTicks: {
+						show: false,
+					},
 				},
 				responsive: [
 					{
@@ -642,6 +676,7 @@
 				alert('1');
 			},
 		},
+		mounted() {},
 	};
 </script>
 
@@ -654,6 +689,7 @@
 			font-weight: 700;
 			margin-bottom: 4px;
 			text-transform: uppercase;
+			text-align: center;
 		}
 
 		&__value {
@@ -663,7 +699,7 @@
 		}
 	}
 	.page_content__grid {
-		margin-top: -65px;
+		margin-top: -55px;
 		display: grid;
 		grid-template-columns: 1.75fr 1fr;
 		grid-gap: 24px;
