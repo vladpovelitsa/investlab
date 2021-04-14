@@ -76,25 +76,30 @@
 						<div class="item">
 							<div
 								class="item__content d-flex flex-column align-center justify-center"
-								v-if="showTable"
+								v-if="!showTable"
 							>
 								<img src="../assets/img/not_found.png" alt="not found" class="mb-5" />
 								<h6 class="text-h4 text-center">Доверительное управление</h6>
 								<p class="text-body2 text-center">
 									Наполнение портфеля из представленных инструментов.
 								</p>
-								<v-btn color="#2C7BE5" dark large>
-									<router-link :to="{ name: '#' }" class="text-decoration-none"
-										>Наполнить</router-link
-									>
+								<v-btn
+									color="#2C7BE5"
+									dark
+									large
+									@click.prevent="showTable = !showTable"
+								>
+									Наполнить
 								</v-btn>
 							</div>
-							<div class="item__content" v-else-if="!showTable">
+							<div class="item__content" v-else-if="showTable">
 								<header
 									class="d-flex justify-space-between align-center item__header px-4 pb-4"
 								>
 									<div class="item__title">Доверительное управление</div>
-									<v-btn color="white" small> Добавить </v-btn>
+									<v-btn color="white" small @click.prevent="showTable = !showTable">
+										Добавить
+									</v-btn>
 								</header>
 								<v-data-table
 									:headers="headers"
@@ -261,7 +266,7 @@
 							</div>
 						</div>
 						<div class="item">
-							<div class="item__content d-flex align-center" v-if="showTable">
+							<div class="item__content d-flex align-center" v-if="!showTable">
 								<div>
 									<h6 class="subtitle-1 font-weight-bold mb-4">
 										Независимое управление для безопасной самостоятельной работы с
@@ -270,20 +275,25 @@
 									<p class="subtitle-2 font-weight-regular mb-10">
 										Наполнение портфеля из представленных инструментов.
 									</p>
-									<v-btn color="#2C7BE5" dark large>
-										<router-link :to="{ name: '#' }" class="text-decoration-none"
-											>Наполнить</router-link
-										>
+									<v-btn
+										color="#2C7BE5"
+										dark
+										large
+										@click.prevent="showTable = !showTable"
+									>
+										Наполнить
 									</v-btn>
 								</div>
-								<img src="../assets/img/dance.png" alt="dance" class="" />
+								<img class="dance_img" src="../assets/img/dance.png" alt="dance" />
 							</div>
-							<div class="item__content" v-else-if="!showTable">
+							<div class="item__content" v-else-if="showTable">
 								<header
 									class="d-flex justify-space-between align-center item__header px-4 pb-4"
 								>
 									<div class="item__title">Доверительное управление</div>
-									<v-btn color="white" small> Добавить </v-btn>
+									<v-btn color="white" small @click.prevent="showTable = !showTable">
+										Добавить
+									</v-btn>
 								</header>
 								<v-data-table
 									:headers="headers"
@@ -311,7 +321,11 @@
 										</div>
 									</template>
 									<template v-slot:item.percent="{ item }">
-										<v-btn color="rgba(44,123,229,.1)" x-small>
+										<v-btn
+											color="rgba(44,123,229,.1)"
+											x-small
+											@click.prevent="showTable = !showTable"
+										>
 											{{ item.percent }}
 										</v-btn>
 									</template>
@@ -755,6 +769,11 @@
 			display: flex;
 			justify-content: center;
 			margin: auto;
+		}
+	}
+	@media screen and (max-width: 750px) {
+		.dance_img {
+			display: none;
 		}
 	}
 </style>
