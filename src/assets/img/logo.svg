@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="129.404" height="28.936" viewBox="0 0 129.404 28.936">
+  <g id="logo" transform="translate(-90.906 -41)">
+    <path id="Path_8098" data-name="Path 8098" d="M100.174,0H0" transform="translate(120.137 69.377)" fill="none" stroke="#43a047" stroke-width="1"/>
+    <path id="Path_8099" data-name="Path 8099" d="M0-60.046A2.661,2.661,0,0,0,3-62.21C6.338-72.664,9.333-81.471,14.925-81.471c5.046,0,9.779,15.422,11.1,18.5s3.226,2.93,3.226,2.93" transform="translate(90.98 129.433)" fill="none" stroke="#43a047" stroke-width="1"/>
+    <text id="investlab" transform="translate(120 63)" fill="#f7f7f7" font-size="22" font-family="Lato-Black, Lato" font-weight="800"><tspan x="0" y="0">invest</tspan><tspan y="0" font-family="Lato-Light, Lato" font-weight="300">lab</tspan></text>
+  </g>
+</svg>

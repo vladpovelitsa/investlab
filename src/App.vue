@@ -1,32 +1,43 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+	<v-app>
+		<Header />
+
+		<v-main>
+			<router-view />
+		</v-main>
+	</v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+	import Header from './components/Header.vue';
+	export default {
+		name: 'App',
 
-#nav {
-  padding: 30px;
+		components: {
+			Header,
+		},
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+		data: () => ({
+			options: {
+				chart: {
+					id: 'vuechart-example',
+				},
+				xaxis: {
+					categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+				},
+			},
+			series: [
+				{
+					name: 'series-1',
+					data: [30, 40, 45, 50, 49, 60, 70, 91],
+				},
+			],
+		}),
+	};
+</script>
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+<style scoped lang="scss">
+	.v-app-bar {
+		height: 60px;
+	}
 </style>
