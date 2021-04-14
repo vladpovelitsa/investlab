@@ -481,6 +481,8 @@
 				},
 			],
 			chartOptionColumns: {
+				colors: ['#2C7BE5', '#D2DDEC'],
+
 				chart: {
 					type: 'bar',
 					height: 450,
@@ -490,8 +492,8 @@
 				plotOptions: {
 					bar: {
 						horizontal: false,
-						columnWidth: '55%',
-						endingShape: 'rounded',
+						columnWidth: '40%',
+						borderRadius: 5,
 					},
 				},
 				dataLabels: {
@@ -514,15 +516,27 @@
 						'Sep',
 						'Oct',
 					],
+					colors: ['#000', '#fff'],
+					labels: {
+						style: {
+							colors: '#6E84A3',
+						},
+					},
 				},
-				yaxis: {},
+				yaxis: {
+					labels: {
+						style: {
+							colors: '#6E84A3',
+						},
+					},
+				},
 				fill: {
 					opacity: 1,
 				},
 				tooltip: {
 					y: {
 						formatter: function (val) {
-							return '$ ' + val + ' thousands';
+							return '$ ' + val + ' тыс.';
 						},
 					},
 				},
@@ -560,15 +574,19 @@
 					type: 'donut',
 				},
 				labels: ['Cryptobot', 'Neirbot', 'Newbot'],
-				colors: ['#176EE3', '#176EE3', '#176EE3'],
+				colors: ['#2c7be5', '#a6c5f7', '#d2ddec'],
 				dataLabels: {
 					enabled: false,
 				},
 				legend: {
 					position: 'bottom',
 				},
-				donut: {
-					size: '5%',
+				plotOptions: {
+					pie: {
+						donut: {
+							size: '80%',
+						},
+					},
 				},
 				responsive: [
 					{
